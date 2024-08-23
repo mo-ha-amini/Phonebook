@@ -36,6 +36,12 @@
             txt_phoneNumber = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            grd_contacts = new DataGridView();
+            Id = new DataGridViewTextBoxColumn();
+            FirstName = new DataGridViewTextBoxColumn();
+            LastName = new DataGridViewTextBoxColumn();
+            PhoneNumber = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)grd_contacts).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -105,11 +111,43 @@
             button2.Text = "Delete";
             button2.UseVisualStyleBackColor = true;
             // 
+            // grd_contacts
+            // 
+            grd_contacts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grd_contacts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grd_contacts.Columns.AddRange(new DataGridViewColumn[] { Id, FirstName, LastName, PhoneNumber });
+            grd_contacts.Location = new Point(15, 86);
+            grd_contacts.Name = "grd_contacts";
+            grd_contacts.Size = new Size(773, 352);
+            grd_contacts.TabIndex = 8;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "id";
+            Id.Name = "Id";
+            Id.Visible = false;
+            // 
+            // FirstName
+            // 
+            FirstName.HeaderText = "First Name";
+            FirstName.Name = "FirstName";
+            // 
+            // LastName
+            // 
+            LastName.HeaderText = "Last Name";
+            LastName.Name = "LastName";
+            // 
+            // PhoneNumber
+            // 
+            PhoneNumber.HeaderText = "PhoneNumber";
+            PhoneNumber.Name = "PhoneNumber";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(grd_contacts);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(txt_phoneNumber);
@@ -120,6 +158,8 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)grd_contacts).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,5 +174,10 @@
         private TextBox txt_phoneNumber;
         private Button button1;
         private Button button2;
+        private DataGridView grd_contacts;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn FirstName;
+        private DataGridViewTextBoxColumn LastName;
+        private DataGridViewTextBoxColumn PhoneNumber;
     }
 }

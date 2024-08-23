@@ -11,14 +11,19 @@ namespace Service
             _repo = new PhoneBookRepository();
         }
 
+        public List<Contact> GetContacts()
+        {
+            return _repo.GetContacts();
+        }
         public bool SaveContact(Contact model)
         {
-            List<Contact> contacts = new List<Contact>();
+            List<Contact> contacts = GetContacts();
 
             if (model.Id == Guid.Empty) {
                 model.Id = Guid.NewGuid();
-                contacts.Add(model);
             }
+            contacts.Add(model);
+
             return _repo.SaveContact(contacts);
         }
     }
