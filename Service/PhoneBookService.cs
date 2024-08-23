@@ -15,6 +15,7 @@ namespace Service
         {
             return _repo.GetContacts();
         }
+
         public bool SaveContact(Contact model)
         {
             List<Contact> contacts = GetContacts();
@@ -25,6 +26,25 @@ namespace Service
             contacts.Add(model);
 
             return _repo.SaveContact(contacts);
+        }
+        public bool SaveContactList(List<Contact> contacts)
+        {
+            return _repo.SaveContact(contacts);
+        }
+        public bool DeleteContact(string id)
+        {
+            try
+            {
+                var contacts = GetContacts();
+                var contact = contacts.FirstOrDefault(x => x.Id.ToString() == id);
+                contacts.Remove(contact);
+                _repo.SaveContact(contacts);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

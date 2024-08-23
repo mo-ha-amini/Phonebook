@@ -110,6 +110,7 @@
             button2.TabIndex = 7;
             button2.Text = "Delete";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // grd_contacts
             // 
@@ -120,6 +121,7 @@
             grd_contacts.Name = "grd_contacts";
             grd_contacts.Size = new Size(773, 352);
             grd_contacts.TabIndex = 8;
+            grd_contacts.CellContentClick += grd_contacts_CellContentClick;
             // 
             // Id
             // 
